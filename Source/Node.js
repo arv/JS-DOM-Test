@@ -1,0 +1,5 @@
+function Node() {}
+
+Node.prototype = {
+
+};

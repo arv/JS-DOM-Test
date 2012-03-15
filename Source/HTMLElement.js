@@ -1,12 +1,10 @@
 var HTMLElement = (function() {
     'use strict';
 
+    var classListMap = new WeakMap;
 
-
-    var classListName = '_classList';
-
-    function HTMLElement(tagName) {
-        Element.call(this, tagName, true /* isHTML */)
+    function HTMLElement(ownerDocument, tagName) {
+        Element.call(this, ownerDocument, tagName, true /* isHTML */)
     }
 
     HTMLElement.prototype = Object.create(Element.prototype, {
@@ -16,7 +14,7 @@ var HTMLElement = (function() {
         translate: util.reflectBooleanAttribute('translate'),
         dir: util.reflectStringAttribute('dir'),
         className: util.reflectStringAttribute('class'),
-        classList: util.readOnly(classListName, ClassList),
+        classList: util.cachedReadOnly(classListMap, ClassList),
         tabIndex: util.reflectLongAttribute('tabindex'),
         draggable: util.reflectBooleanAttribute('draggable'),
         webkitdropzone: util.reflectStringAttribute('webkitdropzone'),

@@ -1,5 +1,5 @@
-function HTMLDocument() {}
+function HTMLDocument() {
+    Document.call(this);
+}
 
-HTMLDocument.prototype = {
-  __proto__: Document.prototype
-};
+HTMLDocument.prototype = Object.create(Document.prototype);

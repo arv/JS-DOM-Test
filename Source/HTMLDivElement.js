@@ -1,7 +1,5 @@
-function HTMLDivElement() {
-    HTMLElement.call(this, 'DIV');
+function HTMLDivElement(ownerDocument) {
+    HTMLElement.call(this, ownerDocument, 'DIV');
 }
 
-HTMLDivElement.prototype = {
-    __proto__: HTMLElement.prototype,
-};
+HTMLDivElement.prototype = Object.create(HTMLElement.prototype);

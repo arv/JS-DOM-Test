@@ -7,3 +7,25 @@
 <script src="HTMLDivElement.js"></script>
 <script src="Document.js"></script>
 <script src="HTMLDocument.js"></script>
+<script src="CharacterData.js"></script>
+<script src="Text.js"></script>
+
+<script>
+
+(function() {
+
+    var document = new HTMLDocument;
+    var html = document.createElement('div');
+    document.appendChild(html);
+    html.textContent = 'Hello ';
+    var b = document.createElement('div');
+    b.textContent = 'bold';
+    html.appendChild(b);
+    html.appendChild(document.createTextNode(' World!'));
+
+    console.log(document.hasChildNodes());
+    console.log(html.textContent);
+
+})();
+
+</script>

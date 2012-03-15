@@ -5,43 +5,43 @@ var Element = (function() {
         return element._isHTML ? name.toLowerCase() : name;
     }
 
-    function Element(tagName, isHTML) {
-        Node.call(this);
+    function Element(ownerDocument, tagName, isHTML) {
+        Node.call(this, ownerDocument);
         this._attributeMap = new Map;
         this._tagName = tagName;
         this._isHTML = isHTML;
     }
 
-    Element.prototype = {
-        __proto__: Node.prototype,
-
-        _isHTMLElement: false,
-
-        setAttribute: function(name, value) {
+    Element.prototype = Object.create(Node.prototype, {
+        setAttribute: util.method(function(name, value) {
             var normalizedName = normalizeAttributeName(this, name);
             // var map = GET(this, ATTRIBUTE_MAP);
             var map = this._attributeMap;
             map.set(normalizedName, String(value));
-        },
-
-        getAttribute: function(name) {
+        }),
+        getAttribute: util.method(function(name) {
             var normalizedName = normalizeAttributeName(this, name);
             // var map = GET(this, ATTRIBUTE_MAP);
             var map = this._attributeMap;
             return map.has(normalizedName) ? map.get(normalizedName) : null;
-        },
-
-        hasAttribute: function(name) {
+        }),
+        hasAttribute: util.method(function(name) {
             var normalizedName = normalizeAttributeName(this, name);
             // var map = GET(this, ATTRIBUTE_MAP);
             var map = this._attributeMap;
             return map.has(normalizedName);
-        },
+        }),
 
-        get tagName() {
+        tagName: util.readOnly(function() {
             return this._tagName;
-        }
-    };
+        }),
+
+        nodeName: util.readOnly(function() {
+            return this.tagName;
+        }),
+
+        nodeType: util.readOnlyValue(Node.ELEMENT_NODE)
+    });
 
     return Element;
 })();

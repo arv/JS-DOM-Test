@@ -1,9 +1,23 @@
-function Document() {}
+var Document = (function() {
 
-Document.prototype= {
-  __proto__: Node.prototype,
+    var tagNameToConstructor = new Map;
+    tagNameToConstructor.set('div', HTMLDivElement);
 
-    createElement: function(tagName) {
-        return new HTMLDivElement();
+    function Document() {
+        Node.call(this, null);
     }
-};
+
+    Document.prototype= Object.create(Node.prototype, {
+        createElement: util.method(function(tagName) {
+            var constr = tagNameToConstructor.get(tagName);
+            return new constr(this);
+        }),
+        createTextNode: util.method(function(text) {
+            return new Text(this, text);
+        }),
+        nodeName: util.readOnlyValue('#document'),
+        nodeType: util.readOnlyValue(Node.DOCUMENT_NODE)
+    });
+
+    return Document;
+})();

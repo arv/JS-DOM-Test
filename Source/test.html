@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <script src="util.js"></script>
+<script src="ChildNodeList.js"></script>
 <script src="Node.js"></script>
 <script src="Element.js"></script>
 <script src="ClassList.js"></script>
@@ -18,7 +19,7 @@
     var html = document.createElement('div');
     document.appendChild(html);
     html.textContent = 'Hello ';
-    var b = document.createElement('div');
+    var b = document.createElement('b');
     b.textContent = 'bold';
     html.appendChild(b);
     html.appendChild(document.createTextNode(' World!'));
@@ -26,6 +27,17 @@
     console.log(document.hasChildNodes());
     console.log(html.textContent);
 
+    document.childNodes.length;
+    document.childNodes.item(0);
+    document.appendChild(document.createTextNode('1'));
+    document.childNodes.item(0);
+    document.appendChild(document.createTextNode('2'));
+    document.childNodes.item(1);
+    document.childNodes.item(2);
+    console.log(document.childNodes.item(1));
+    console.log(document.childNodes.length);
+    document.removeChild(document.childNodes.item(1));
+    console.log(document.childNodes.length);
 })();
 
 </script>

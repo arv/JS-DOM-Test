@@ -1,4 +1,4 @@
-function HTMLDivElement(ownerDocument) {
+function HTMLDivElement(ownerDocument, tagName) {
     HTMLElement.call(this, ownerDocument, 'DIV');
 }
 

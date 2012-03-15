@@ -5,6 +5,7 @@ var util = (function() {
         return {
             value: func,
             configurable: true,
+            enumerable: true,
             writable: true
         };
     }

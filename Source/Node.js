@@ -1,5 +1,13 @@
 var Node = (function() {
 
+    var childNodesWeakMap = new WeakMap;
+
+    function invalidateChildNodes(node) {
+        var childNodes = childNodesWeakMap.get(node);
+        if (childNodes)
+            childNodes._invalidate();
+    }
+
     function forAllChildNodes(node, func) {
         for (var child = node._firstChild; child; ) {
             var next = child._nextSibling;
@@ -13,6 +21,7 @@ var Node = (function() {
             child._parentNode = child._previousSibling = child._nextSibling = null;
         });
         node._firstChild = node._lastChild = null;
+        invalidateChildNodes(node);
     }
 
     function appendChild(child) {
@@ -35,6 +44,7 @@ var Node = (function() {
         if (child._nextSibling)
             child._nextSibling._previousSibling = child._previousSibling;
         child._previousSibling = child._nextSibling = child._parentNode = null;
+        invalidateChildNodes(this);
         return child;
     }
 
@@ -73,6 +83,7 @@ var Node = (function() {
         }
 
         node._parentNode = this;
+        invalidateChildNodes(this);
         return oldChild;
     }
 
@@ -96,6 +107,7 @@ var Node = (function() {
         oldChild._parentNode = oldChild._previousSibling = oldChild._nextSibling = null;
 
         node._parentNode = this;
+        invalidateChildNodes(this);
         return node;
     }
 
@@ -166,6 +178,8 @@ var Node = (function() {
             get: getTextContent,
             set: setTextContent,
         }),
+
+        childNodes: util.cachedReadOnly(childNodesWeakMap, ChildNodeList),
     });
 
     util.defineConsts(Node, [

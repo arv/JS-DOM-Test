@@ -165,6 +165,11 @@ var Node = (function() {
         nextSibling: util.readOnly(function() { return this._nextSibling; }),
         previousSibling: util.readOnly(function() { return this._previousSibling; }),
 
+        parentElement: util.readOnly(function() {
+            var p = this._parentNode;
+            return p && (p.nodeType === Node.ELEMENT_NODE ? p : null);
+        }),
+
         appendChild: util.method(appendChild),
         removeChild: util.method(removeChild),
         insertBefore: util.method(insertBefore),

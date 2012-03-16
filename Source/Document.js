@@ -62,7 +62,7 @@ var Document = (function() {
         createElement: util.method(function(tagName) {
             // TODO(arv): Only lowercase for HTMLDocument.
             var constr = tagNameToConstructor.get(tagName.toLowerCase());
-            return new constr(this);
+            return new constr(this, tagName);
         }),
         createTextNode: util.method(function(text) {
             return new Text(this, text);

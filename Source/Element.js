@@ -1,6 +1,16 @@
 var Element = (function() {
     'use strict';
 
+    function nextElement(node) {
+        for (; node && node.nodeType !== Node.ELEMENT_NODE; node = node._nextSibling) {}
+        return node;
+    }
+
+    function previousElement(node) {
+        for (; node && node.nodeType !== Node.ELEMENT_NODE; node = node._previousSibling) {}
+        return node;
+    }
+
     function normalizeAttributeName(element, name) {
         return element._isHTML ? name.toLowerCase() : name;
     }
@@ -40,7 +50,20 @@ var Element = (function() {
             return this.tagName;
         }),
 
-        nodeType: util.readOnlyValue(Node.ELEMENT_NODE)
+        nodeType: util.readOnlyValue(Node.ELEMENT_NODE),
+
+        firstElementChild: util.readOnly(function() {
+            return nextElement(this._firstChild);
+        }),
+        lastElementChild: util.readOnly(function() {
+            return previousElement(this._lastChild);
+        }),
+        previousElementSibling: util.readOnly(function() {
+            return previousElement(this._previousSibling);
+        }),
+        nextElementSibling: util.readOnly(function() {
+            return nextElement(this._nextSibling);
+        }),
     });
 
     return Element;

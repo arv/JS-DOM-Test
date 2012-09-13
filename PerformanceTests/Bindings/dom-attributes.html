@@ -99,62 +99,62 @@ PerfTestRunner.run(function() {
                                 div.accessKey;
                         }
                  },
-                 {name: 'HTMLElement.children',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.children;
-                        }
-                 },
-                 {name: 'HTMLElement.isContentEditable',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.isContentEditable;
-                        }
-                 },
-                 {name: 'HTMLElement.spellcheck',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.spellcheck;
-                        }
-                 },
-                 {name: 'HTMLElement.innerHTML',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.innerHTML;
-                        }
-                 },
-                 {name: 'HTMLElement.innerText',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.innerText;
-                        }
-                 },
-                 {name: 'HTMLElement.outerHTML',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.outerHTML;
-                        }
-                 },
-                 {name: 'HTMLElement.outerText',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.outerText;
-                        }
-                 },
-                 {name: 'HTMLElement.contentEditable',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.contentEditable;
-                        }
-                 },
+                 // {name: 'HTMLElement.children',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.children;
+                 //        }
+                 // },
+                 // {name: 'HTMLElement.isContentEditable',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.isContentEditable;
+                 //        }
+                 // },
+                 // {name: 'HTMLElement.spellcheck',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.spellcheck;
+                 //        }
+                 // },
+                 // {name: 'HTMLElement.innerHTML',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.innerHTML;
+                 //        }
+                 // },
+                 // {name: 'HTMLElement.innerText',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.innerText;
+                 //        }
+                 // },
+                 // {name: 'HTMLElement.outerHTML',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.outerHTML;
+                 //        }
+                 // },
+                 // {name: 'HTMLElement.outerText',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.outerText;
+                 //        }
+                 // },
+                 // {name: 'HTMLElement.contentEditable',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.contentEditable;
+                 //        }
+                 // },
                  {name: 'HTMLElement.id="foo"',
                   func: function() {
                             var div = document.createElement("div");
@@ -225,27 +225,27 @@ PerfTestRunner.run(function() {
                                 div.accessKey = "foo";
                         }
                  },
-                 {name: 'HTMLElement.spellcheck="foo"',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < setterRepeat; i++)
-                                div.spellcheck = "foo";
-                        }
-                 },
-                 {name: 'HTMLElement.innerHTML="foo"',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < setterRepeat; i++)
-                                div.innerHTML = "foo";
-                        }
-                 },
-                 {name: 'HTMLElement.innerText="foo"',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < setterRepeat; i++)
-                                div.innerText = "foo";
-                        }
-                 },
+                 // {name: 'HTMLElement.spellcheck="foo"',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < setterRepeat; i++)
+                 //                div.spellcheck = "foo";
+                 //        }
+                 // },
+                 // {name: 'HTMLElement.innerHTML="foo"',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < setterRepeat; i++)
+                 //                div.innerHTML = "foo";
+                 //        }
+                 // },
+                 // {name: 'HTMLElement.innerText="foo"',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < setterRepeat; i++)
+                 //                div.innerText = "foo";
+                 //        }
+                 // },
                  {name: 'Element.tagName',
                   func: function() {
                             var div = document.createElement("div");
@@ -253,41 +253,41 @@ PerfTestRunner.run(function() {
                                 div.tagName;
                         }
                  },
-                 {name: 'Element.style',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.style;
-                        }
-                 },
-                 {name: 'Element.offsetLeft',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.offsetLeft;
-                        }
-                 },
-                 {name: 'Element.clientLeft',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.clientLeft;
-                        }
-                 },
-                 {name: 'Element.scrollLeft',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.scrollLeft;
-                        }
-                 },
-                 {name: 'Element.dataset',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.dataset;
-                        }
-                 },
+                 // {name: 'Element.style',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.style;
+                 //        }
+                 // },
+                 // {name: 'Element.offsetLeft',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.offsetLeft;
+                 //        }
+                 // },
+                 // {name: 'Element.clientLeft',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.clientLeft;
+                 //        }
+                 // },
+                 // {name: 'Element.scrollLeft',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.scrollLeft;
+                 //        }
+                 // },
+                 // {name: 'Element.dataset',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.dataset;
+                 //        }
+                 // },
                  {name: 'Element.firstElementChild',
                   func: function() {
                             var div = document.createElement("div");
@@ -316,34 +316,34 @@ PerfTestRunner.run(function() {
                                 div.nextElementSibling;
                         }
                  },
-                 {name: 'Element.childElementCount',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.childElementCount;
-                        }
-                 },
-                 {name: 'Element.onload',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.onload;
-                        }
-                 },
-                 {name: 'Element.scrollLeft="foo"',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < setterRepeat; i++)
-                                div.scrollLeft = "foo";
-                        }
-                 },
-                 {name: 'Element.onload="foo"',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < setterRepeat; i++)
-                                div.onload = "foo";
-                        }
-                 },
+                 // {name: 'Element.childElementCount',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.childElementCount;
+                 //        }
+                 // },
+                 // {name: 'Element.onload',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.onload;
+                 //        }
+                 // },
+                 // {name: 'Element.scrollLeft="foo"',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < setterRepeat; i++)
+                 //                div.scrollLeft = "foo";
+                 //        }
+                 // },
+                 // {name: 'Element.onload="foo"',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < setterRepeat; i++)
+                 //                div.onload = "foo";
+                 //        }
+                 // },
                  {name: 'Node.nodeName',
                   func: function() {
                             var div = document.createElement("div");
@@ -400,13 +400,13 @@ PerfTestRunner.run(function() {
                                 div.nextSibling;
                         }
                  },
-                 {name: 'Node.attributes',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.attributes;
-                        }
-                 },
+                 // {name: 'Node.attributes',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.attributes;
+                 //        }
+                 // },
                  {name: 'Node.ownerDocument',
                   func: function() {
                             var div = document.createElement("div");
@@ -414,27 +414,27 @@ PerfTestRunner.run(function() {
                                 div.ownerDocument;
                         }
                  },
-                 {name: 'Node.namespaceURI',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.namespaceURI;
-                        }
-                 },
-                 {name: 'Node.localName',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.localName;
-                        }
-                 },
-                 {name: 'Node.baseURI',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.baseURI;
-                        }
-                 },
+                 // {name: 'Node.namespaceURI',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.namespaceURI;
+                 //        }
+                 // },
+                 // {name: 'Node.localName',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.localName;
+                 //        }
+                 // },
+                 // {name: 'Node.baseURI',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.baseURI;
+                 //        }
+                 // },
                  {name: 'Node.parentElement',
                   func: function() {
                             var div = document.createElement("div");
@@ -442,20 +442,20 @@ PerfTestRunner.run(function() {
                                 div.parentElement;
                         }
                  },
-                 {name: 'Node.nodeValue',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.nodeValue;
-                        }
-                 },
-                 {name: 'Node.prefix',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < getterRepeat; i++)
-                                div.prefix;
-                        }
-                 },
+                 // {name: 'Node.nodeValue',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.nodeValue;
+                 //        }
+                 // },
+                 // {name: 'Node.prefix',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < getterRepeat; i++)
+                 //                div.prefix;
+                 //        }
+                 // },
                  {name: 'Node.textContent',
                   func: function() {
                             var div = document.createElement("div");
@@ -463,20 +463,20 @@ PerfTestRunner.run(function() {
                                 div.textContent;
                         }
                  },
-                 {name: 'Node.nodeValue="foo"',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < setterRepeat; i++)
-                                div.nodeValue = "foo";
-                        }
-                 },
-                 {name: 'Node.prefix="foo"',
-                  func: function() {
-                            var div = document.createElement("div");
-                            for (var i = 0; i < setterRepeat; i++)
-                                div.prefix = "foo";
-                        }
-                 },
+                 // {name: 'Node.nodeValue="foo"',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < setterRepeat; i++)
+                 //                div.nodeValue = "foo";
+                 //        }
+                 // },
+                 // {name: 'Node.prefix="foo"',
+                 //  func: function() {
+                 //            var div = document.createElement("div");
+                 //            for (var i = 0; i < setterRepeat; i++)
+                 //                div.prefix = "foo";
+                 //        }
+                 // },
                  {name: 'Node.textContent="foo"',
                   func: function() {
                             var div = document.createElement("div");

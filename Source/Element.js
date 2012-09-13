@@ -23,23 +23,37 @@ var Element = (function() {
     }
 
     Element.prototype = Object.create(Node.prototype, {
-        setAttribute: util.method(function(name, value) {
-            var normalizedName = normalizeAttributeName(this, name);
+        _fastSetAttribute: util.method(function(normalizedName, value) {
             // var map = GET(this, ATTRIBUTE_MAP);
-            var map = this._attributeMap;
-            map.set(normalizedName, String(value));
+            this._attributeMap.set(normalizedName, value);
+        }),
+        setAttribute: util.method(function(name, value) {
+            this._fastSetAttribute(normalizeAttributeName(this, name),
+                                   String(value));
+        }),
+
+        _fastGetAttribute: util.method(function(normalizedName) {
+            var value = this._attributeMap.get(normalizedName);
+            return value !== undefined ? value : null;
         }),
         getAttribute: util.method(function(name) {
-            var normalizedName = normalizeAttributeName(this, name);
+            return this._fastGetAttribute(normalizeAttributeName(this, name));
+        }),
+
+        _fastHasAttribute: util.method(function(normalizedName) {
             // var map = GET(this, ATTRIBUTE_MAP);
-            var map = this._attributeMap;
-            return map.has(normalizedName) ? map.get(normalizedName) : null;
+            return this._attributeMap.has(normalizedName);
         }),
         hasAttribute: util.method(function(name) {
-            var normalizedName = normalizeAttributeName(this, name);
+            return this._fastHasAttribute(normalizeAttributeName(this, name));
+        }),
+
+        _fastRemoveAttribute: util.method(function(normalizedName) {
             // var map = GET(this, ATTRIBUTE_MAP);
-            var map = this._attributeMap;
-            return map.has(normalizedName);
+            this._attributeMap.delete(normalizedName);
+        }),
+        removeAttribute: util.method(function(name) {
+            this._fastRemoveAttribute(normalizeAttributeName(this, name));
         }),
 
         tagName: util.readOnly(function() {

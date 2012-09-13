@@ -13,13 +13,13 @@ var util = (function() {
     function reflectStringAttribute(attributeName) {
         return {
             get: function() {
-                return this.getAttribute(attributeName) || '';
+                return this._fastGetAttribute(attributeName) || '';
             },
             set: function(value) {
                 if (value === null)
-                    this.removeAttribute(attributeName);
+                    this._fastRemoveAttribute(attributeName);
                 else
-                    this.setAttribute(attributeName, value);
+                    this._fastSetAttribute(attributeName, String(value));
             },
             configurable: true,
             enumerable: true
@@ -35,13 +35,13 @@ var util = (function() {
     function reflectBooleanAttribute(attributeName) {
         return {
             get: function() {
-                return this.hasAttribute(attributeName);
+                return this._fastHasAttribute(attributeName);
             },
             set: function(value) {
                 if (!value)
-                    this.removeAttribute(attributeName);
+                    this._fastRemoveAttribute(attributeName);
                 else
-                    this.setAttribute(attributeName, '');
+                    this._fastSetAttribute(attributeName, '');
             },
             configurable: true,
             enumerable: true
@@ -52,14 +52,14 @@ var util = (function() {
         return {
             get: function() {
                 // TODO(arv): Validate
-                return parseInt(this.getAttribute(attributeName), 10);
+                return Number(this._fastGetAttribute(attributeName), 10);
             },
             set: function(value) {
                 if (value === null) {
-                    this.removeAttribute(attributeName);
+                    this._fastRemoveAttribute(attributeName);
                 } else {
                     // TODO(arv): Validate
-                    this.setAttribute(attributeName, Number(value) | 0);
+                    this._fastSetAttribute(attributeName, Number(value) | 0);
                 }
             },
             configurable: true,

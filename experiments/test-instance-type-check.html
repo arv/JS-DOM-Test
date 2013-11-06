@@ -1,0 +1,31 @@
+<!doctype html>
+<script src="instance-type-check.js"></script>
+<!-- <script src="instance-type-check-typed-array.js"></script> -->
+<script>
+
+var div = document.createElement('div');
+div.addEventListener();
+div.getAttribute();
+div.firstChild;
+
+var xhr = new XMLHttpRequest;
+xhr.addEventListener('x', function() {}, true);
+
+try {
+  Element.prototype.getAttribute.call(xhr, 'x');
+  alert('FAILED');
+} catch (ex) {
+  // OK
+}
+
+function test() {
+  for (var i = 0; i < 1e8; i++) {
+    div.getAttribute('x')
+    div.firstChild;
+  }
+}
+console.profile('getAttribute');
+test();
+console.profileEnd('getAttribute');
+
+</script>

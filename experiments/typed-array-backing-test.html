@@ -1,0 +1,37 @@
+<!doctype html>
+<script src="typed-array-backing.js"></script>
+<script>
+
+var p, c, c2;
+
+if (typeof Node_set_firstChild !== 'undefined') {
+
+  p = new Node;  // 1
+  c = new Node;  // 7
+  // var c2 = new Node;  // 13
+
+  // Emulate memory
+  Node_set_firstChild(1, 7);
+  Node_set_firstChild(7, 13);
+
+  console.assert(c.firstChild instanceof Node);
+
+} else {
+  p = document.createElement('p');
+  c = p.appendChild(document.createElement('p'));
+  c2 = c.appendChild(document.createElement('p'));
+}
+
+function test() {
+  p.firstChild === c
+  c2 = c.firstChild
+  c2.firstChild === null;
+}
+
+console.profile('firstChild');
+for (var i = 0; i < 1e7; i++) {
+  test();
+}
+console.profileEnd('firstChild');
+
+</script>

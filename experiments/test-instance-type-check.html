@@ -11,12 +11,12 @@ div.firstChild;
 var xhr = new XMLHttpRequest;
 xhr.addEventListener('x', function() {}, true);
 
-try {
-  Element.prototype.getAttribute.call(xhr, 'x');
-  alert('FAILED');
-} catch (ex) {
-  // OK
-}
+// try {
+//   Element.prototype.getAttribute.call(xhr, 'x');
+//   alert('FAILED');
+// } catch (ex) {
+//   // OK
+// }
 
 function test() {
   for (var i = 0; i < 1e8; i++) {
